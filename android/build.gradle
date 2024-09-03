@@ -1,0 +1,26 @@
+buildscript {
+    ext.kotlin_version = '1.9.20'
+    repositories {
+        google()
+        mavenCentral()
+       // maven { url 'https://storage.googleapis.com/download.flutter.io' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.google.gms:google-services:4.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //classpath 'dev.flutter:flutter-gradle-plugin:4.3.15'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        //maven { url 'https://storage.googleapis.com/download.flutter.io' }
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

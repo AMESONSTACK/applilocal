@@ -1,0 +1,41 @@
+
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'kotlin-android'
+    id 'dev.flutter.flutter-gradle-plugin'
+}
+
+android {
+    namespace = "com.example.applilocali"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.applilocali"
+        minSdk = 23
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    // Add your app-specific dependencies here
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.20"
+    implementation 'androidx.annotation:annotation:1.8.2'
+}

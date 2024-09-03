@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "761801883752",
+    "firebase_url": "https://localisation-9cfda-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "localisation-9cfda",
+    "storage_bucket": "localisation-9cfda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761801883752:android:1a9cec6a0b43a95da7fbdd",
+        "android_client_info": {
+          "package_name": "com.example.applilocali"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761801883752-n8sjv2ogs0ilrbqm2m5b7uj8f4k5807c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnrgxuTNdlJGSRr9UhLrQeqLuwDJGRmlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761801883752-n8sjv2ogs0ilrbqm2m5b7uj8f4k5807c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "761801883752-uc760aj5v0gt23mst94mo6vri5efs4kl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.applilocali"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
