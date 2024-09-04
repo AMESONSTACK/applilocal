@@ -619,66 +619,104 @@ class _IncidentDetailsPageState extends State<IncidentDetailsPage> {
                     ),
               SizedBox(height: 16.0),
               Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TextField(
-                        controller: _commentController,
-                        decoration: InputDecoration(
-                          labelText: 'Ajouter un commentaire',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                      SizedBox(height: 8.0),
-                      ElevatedButton.icon(
-                        onPressed: _addComment,
-                        icon: Icon(Icons.send),
-                        label: Text('Ajouter Commentaire'),
-                      ),
-                    ],
-                  ),
-                ),
+  elevation: 5,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(10),
+  ),
+  child: Padding(
+    padding: EdgeInsets.all(16.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextField(
+          controller: _commentController,
+          maxLines: null, // Permet d'agrandir la zone de texte si nécessaire
+          decoration: InputDecoration(
+            labelText: 'Ajouter un commentaire',
+            hintText: 'Écrivez votre commentaire ici...',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            prefixIcon: Icon(Icons.comment, color: Colors.blue),
+          ),
+        ),
+        SizedBox(height: 8.0),
+        Align(
+          alignment: Alignment.centerRight,
+          child: ElevatedButton.icon(
+            onPressed: _addComment,
+            icon: Icon(Icons.send, color: Colors.white),
+            label: Text('Envoyer'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
               ),
-              SizedBox(height: 16.0),
-              if (_comments != null && _comments!.isNotEmpty)
-                Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Commentaires:',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 8.0),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: _comments!.length,
-                          itemBuilder: (context, index) {
-                            final comment = _comments![index];
-                            return ListTile(
-                              title: Text(comment['comment']),
-                              subtitle: Text('Par: ${comment['email']}'),
-                              trailing: Text(comment['timestamp']),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+            ),
+          ),
+        ),
+      ],
+    ),
+  ),
+),
+SizedBox(height: 16.0),
+if (_comments != null && _comments!.isNotEmpty)
+  Card(
+    elevation: 5,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Commentaires',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blue),
+          ),
+          SizedBox(height: 8.0),
+          Divider(color: Colors.grey[400]),
+          ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: _comments!.length,
+            separatorBuilder: (context, index) => Divider(color: Colors.grey[300]),
+            itemBuilder: (context, index) {
+              final comment = _comments![index];
+              return ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.blue,
+                  child: Icon(Icons.person, color: Colors.white),
                 ),
+                title: Text(
+                  comment['comment'],
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                subtitle: Text(
+                  'Par: ${comment['email']}',
+                  style: TextStyle(color: Colors.grey[600]),
+                ),
+                trailing: Text(
+                  comment['timestamp'],
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    ),
+  )
+else
+  Center(
+    child: Text(
+      'Aucun commentaire pour cet incident.',
+      style: TextStyle(color: Colors.grey, fontSize: 16),
+    ),
+  ),
+
             ],
           ),
         ),

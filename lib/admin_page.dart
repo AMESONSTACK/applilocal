@@ -14,9 +14,11 @@ import 'login_page.dart';
 class AdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('dd MMMM yyyy').format(DateTime.now()); // Obtenir la date du jour
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Admin Page'),
+        title: Text('Admin Page - $formattedDate'), // Afficher la date dans l'AppBar
         backgroundColor: Colors.blue,
       ),
       backgroundColor: Colors.grey[200],
@@ -105,13 +107,13 @@ class AdminPage extends StatelessWidget {
     );
   }
 
-void _signOut(BuildContext context) {
+  void _signOut(BuildContext context) {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
-  // Méthode pour afficher le dialogue de déconnexion
+
   void _showLogoutDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -128,7 +130,7 @@ void _signOut(BuildContext context) {
             ),
             TextButton(
               child: Text('Déconnexion'),
-               onPressed: () {
+              onPressed: () {
                 Navigator.of(context).pop();
                 _signOut(context);
               }, // Retour à la première page
