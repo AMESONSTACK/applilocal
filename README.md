@@ -1,6 +1,5 @@
 # applilocali
 
-A new Flutter project.
 
 ## Getting Started
 
@@ -37,7 +36,7 @@ Cette application Flutter permet de gérer et d'afficher des incidents. Les util
 
 1. Clonez le dépôt :
    ```sh
-   git clone https://github.com/username/repository.git
+   git clone https://github.com/AMESONSTACK/applilocali.git
    ```
 
 2. Accédez au répertoire du projet :
@@ -61,7 +60,7 @@ Cette application Flutter permet de gérer et d'afficher des incidents. Les util
 
 ## Configuration
 
-Pour configurer Firebase et OneSignal, suivez ces étapes :
+Pour configurer Firebase , suivez ces étapes :
 
 1. **Firebase** :
    - Créez un projet Firebase sur [Firebase Console](https://console.firebase.google.com/).
